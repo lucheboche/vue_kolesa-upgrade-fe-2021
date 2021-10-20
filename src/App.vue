@@ -2,6 +2,7 @@
   <div id="app">
     <div v-if="isModalOpened" class="modal">
       <div class="modal__box">
+        <div @click="modalClose" class="modal__tint"></div>
         <button class="modal__close">
           <img
             @click="modalClose"

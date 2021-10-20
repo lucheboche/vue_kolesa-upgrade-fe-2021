@@ -13,9 +13,8 @@
     width: 100vw;
     height: 100vh;
     z-index: 10;
-
-    &::before {
-        content: '';
+    
+    &__tint {
         position: fixed;
         top: 0;
         left: 0;
@@ -24,6 +23,7 @@
         background: $main-color;
         opacity: 0.6;
         cursor: pointer;
+        z-index: -1;
     }
 
     &__box {
