@@ -76,7 +76,7 @@
             </div>
           </div>
 
-          <div class="modal-colors">
+          <div v-if="cardEl.colors.length > 0" class="modal-colors">
             <div class="options__title">Цвета:</div>
             <div class="options">
               <label v-for="(el,i) in cardEl.colors" :key="i" class="options__box">
@@ -95,7 +95,7 @@
             </div>
           </div>
 
-          <div class="modal-sizes">
+          <div v-if="cardEl.sizes.length > 0" class="modal-sizes">
             <div class="options__title">Размер:</div>
             <div class="options">
               <label v-for="(el,i) in cardEl.sizes" :key="i" class="options__box">
@@ -433,9 +433,10 @@ export default {
   computed: {
     cardsMassiveComputed() {
       if (this.optionsType > 0) {
-        return this.cardsMassive.filter((card) => card.typeItem === this.optionsType);
+        const arr = this.cardsMassive.filter((card) => card.typeItem === this.optionsType);
+        return this.sortArray(arr);
       }
-      return this.cardsMassive;
+      return this.sortArray(this.cardsMassive);
     },
   },
   methods: {
@@ -447,6 +448,20 @@ export default {
       this.cardEl = el;
       this.isModalOpened = true;
       document.body.style.overflow = 'hidden';
+    },
+    sortArray(arr) {
+      arr.sort((b, a) => {
+        if (a.newItem > b.newItem) {
+          return 1;
+        }
+
+        if (a.newItem < b.newItem) {
+          return -1;
+        }
+
+        return 0;
+      });
+      return arr;
     },
   },
 };
