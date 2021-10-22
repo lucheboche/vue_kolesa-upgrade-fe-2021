@@ -45,5 +45,5 @@ export default {
 </script>
 
 <style lang="scss">
-@import '../scss/blocks/card-item.scss';
+  @import '../scss/blocks/card-item.scss';
 </style>

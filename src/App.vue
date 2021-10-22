@@ -36,38 +36,7 @@
     </header>
 
     <section class="section">
-      <nav class="menu section__menu">
-        <ul class="menu__link-box">
-          <li class="menu__link-item">
-            <a class="menu__link" href="#">Оргсхема</a>
-          </li>
-          <li class="menu__link-item">
-            <a class="menu__link" href="#">Kolesa Team</a>
-          </li>
-          <li class="menu__link-item menu__link-item--bolds">
-            <a class="menu__link" href="#">Kolesa Shop</a>
-          </li>
-          <li class="menu__link-item">
-            <a class="menu__link" href="#">Картина компании</a>
-          </li>
-          <li class="menu__link-item">
-            <a class="menu__link" href="#">Новости</a>
-          </li>
-          <li class="menu__link-item">
-            <a class="menu__link" href="#">Education</a>
-          </li>
-          <li class="menu__link-item">
-            <a class="menu__link" href="#">Guidelines</a>
-          </li>
-          <li class="menu__link-item">
-            <a class="menu__link" href="#">Библиотека</a>
-          </li>
-          <li class="menu__link-item">
-            <a class="menu__link" href="#">FAQ</a>
-          </li>
-        </ul>
-      </nav>
-
+      <Menu/>
       <div class="section__content content">
         <div class="content__banner"></div>
 
@@ -130,6 +99,7 @@ import Modal from './components/modal.vue';
 import CardItem from './components/cardItem.vue';
 import cardsMassive from './js/cardsMassive';
 import Footer from './components/footer.vue';
+import Menu from './components/menu.vue';
 
 export default {
   name: 'App',
@@ -137,6 +107,7 @@ export default {
     Modal,
     CardItem,
     Footer,
+    Menu,
   },
   data() {
     return {
