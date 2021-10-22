@@ -22,6 +22,8 @@
     }
 
     &__search-btn {
+        @include btn;
+
         position: relative;
         padding: 0 16px;
         z-index: 1;
@@ -61,6 +63,8 @@
     }
 
     &__user-btn {
+        @include btn;
+        
         justify-content: end;
         text-align: left;
     }

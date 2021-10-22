@@ -65,7 +65,7 @@
           <div class="modal-txt-side__price-box price-box">
             <div class="price-box__pricebtn">
               <div class="price-box__price">{{cardElem.priceItem}} баллов</div>
-              <button class="btn price-box__btn">Попросить 50 баллов</button>
+              <button class="price-box__btn">Попросить 50 баллов</button>
             </div>
             <div class="price-box__balance-box">
               <div class="price-box__tvoibalans-box">

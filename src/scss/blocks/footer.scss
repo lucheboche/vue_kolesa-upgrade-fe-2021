@@ -38,7 +38,8 @@
 
     &__btn {
         @include boxsh;
-
+        @include btn;
+        
         width: 150px;
         height: 36px;
         margin: 0 40px;

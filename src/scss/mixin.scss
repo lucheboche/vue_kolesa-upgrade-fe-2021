@@ -11,3 +11,11 @@
     font-size: 20px;
     line-height: 32px;
 }
+
+@mixin btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: unset;
+    cursor: pointer;
+}

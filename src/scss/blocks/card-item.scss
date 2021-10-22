@@ -54,6 +54,8 @@
     }
 
     &__btn {
+        @include btn;
+        
         display: none;
         font-size: 16px;
         line-height: 24px;
