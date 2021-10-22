@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+
     <Modal
     v-if="isModalOpened"
     :cardElem="cardEl"
@@ -21,32 +22,7 @@
       <div class="section__content content">
         <div class="content__banner"></div>
 
-        <div class="content__bonus bonus">
-          <button class="bonus__btn bonus__btn--green btn">
-            <img
-              class="bonus__image"
-              src="../src/img/plus-sign.svg"
-              alt="plus-sign"
-            />
-            Получить баллы
-          </button>
-          <button class="bonus__btn bonus__btn--yellow btn">
-            <img
-              class="bonus__image"
-              src="../src/img/question-sign.svg"
-              alt="question-sign"
-            />
-            Как получить баллы
-          </button>
-          <button class="bonus__btn bonus__btn--blue btn">
-            <img
-              class="bonus__image"
-              src="../src/img/gift.png"
-              alt="gift"
-            />
-            Подарить баллы
-          </button>
-        </div>
+        <Bonus/>
         <Options
         @opt="optionsType = $event"
         />
@@ -70,6 +46,7 @@ import Menu from './components/menu.vue';
 import Search from './components/search.vue';
 import User from './components/user.vue';
 import Options from './components/options.vue';
+import Bonus from './components/bonus.vue';
 
 export default {
   name: 'App',
@@ -81,6 +58,7 @@ export default {
     Search,
     User,
     Options,
+    Bonus,
   },
   data() {
     return {
