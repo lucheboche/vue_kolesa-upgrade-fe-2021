@@ -16,9 +16,16 @@
         {{ element.titleItem }}
       </div>
 
-      <div v-if="element.sizes.length > 0" class="card-item__sizes">
-        Размеры: <span v-for="(el,i) in element.sizes"
-        :key="i" style="text-transform: uppercase;">
+      <div
+      v-if="element.sizes.length > 0"
+      class="card-item__sizes"
+      >
+        Размеры:
+        <span
+        v-for="(el,i) in element.sizes"
+        :key="i"
+        style="text-transform: uppercase;"
+        >
         <span v-if="i < 1"></span>
         <span v-else>/</span>
         {{el}}

@@ -47,23 +47,9 @@
             Подарить баллы
           </button>
         </div>
-
-        <div class="content__options options">
-          <label class="options__box">
-            <input @change="optionsType=0"
-            class="input-radio js-tab" type="radio" name="tab" checked />
-            <div class="options__tab options__tab--main">Все товары</div>
-          </label>
-          <label class="options__box">
-            <input @change="optionsType=1" class="input-radio js-tab" type="radio" name="tab" />
-            <div class="options__tab options__tab--main">Одежда</div>
-          </label>
-          <label class="options__box">
-            <input @change="optionsType=2" class="input-radio js-tab" type="radio" name="tab" />
-            <div class="options__tab options__tab--main">Аксессуары</div>
-          </label>
-        </div>
-
+        <Options
+        @opt="optionsType = $event"
+        />
         <CardItem
         :cardsMassiveComputed="cardsMassiveComputed"
         @modalOpen="modalOpen"
@@ -83,6 +69,7 @@ import Footer from './components/footer.vue';
 import Menu from './components/menu.vue';
 import Search from './components/search.vue';
 import User from './components/user.vue';
+import Options from './components/options.vue';
 
 export default {
   name: 'App',
@@ -93,6 +80,7 @@ export default {
     Menu,
     Search,
     User,
+    Options,
   },
   data() {
     return {

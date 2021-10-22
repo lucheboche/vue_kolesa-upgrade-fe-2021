@@ -2,12 +2,12 @@
   <nav class="menu section__menu">
     <ul class="menu__link-box">
       <li
-      v-for="i in linkArray"
+      v-for="(el,i) in linkArray"
       :key="i"
-      :class="{'menu__link-item--bolds':i.active}"
+      :class="{'menu__link-item--bolds':el.active}"
       class="menu__link-item"
       >
-        <a class="menu__link" href="#">{{i.name}}</a>
+        <a class="menu__link" href="#">{{el.name}}</a>
       </li>
     </ul>
   </nav>
