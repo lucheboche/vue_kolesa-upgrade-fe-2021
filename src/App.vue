@@ -3,7 +3,7 @@
     <Modal
     v-if="isModalOpened"
     :cardElem="cardEl"
-    @emit-close="modalClose"
+    @close="modalClose"
     />
 
     <header class="header">
@@ -12,27 +12,8 @@
           <img src="../src/img/logo.svg" alt="logo" width="215" height="35" />
         </a>
       </div>
-      <div class="header__search">
-        <button class="header__search-btn">
-          <img src="../src/img/search-big.svg" alt="search" />
-        </button>
-        <input class="header__search-input" type="text" placeholder="Поиск" />
-      </div>
-      <div class="header__user">
-        <button class="header__user-btn">
-          <img
-            class="header__user-image"
-            src="../src/img/userpic.png"
-            alt="userpic"
-            width="44"
-            height="44"
-          />
-          <div class="header__user-info">
-            <div class="header__user-name">Мортиджан</div>
-            <div class="header__user-balance">300 баллов</div>
-          </div>
-        </button>
-      </div>
+      <Search/>
+      <User/>
     </header>
 
     <section class="section">
@@ -100,6 +81,8 @@ import CardItem from './components/cardItem.vue';
 import cardsMassive from './js/cardsMassive';
 import Footer from './components/footer.vue';
 import Menu from './components/menu.vue';
+import Search from './components/search.vue';
+import User from './components/user.vue';
 
 export default {
   name: 'App',
@@ -108,6 +91,8 @@ export default {
     CardItem,
     Footer,
     Menu,
+    Search,
+    User,
   },
   data() {
     return {

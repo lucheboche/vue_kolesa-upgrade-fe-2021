@@ -1,10 +1,10 @@
 <template>
     <div class="modal">
-      <div @click="$emit('emit-close')" class="modal__tint"></div>
+      <div @click="$emit('close')" class="modal__tint"></div>
       <div class="modal__box">
         <button class="modal__close">
           <img
-            @click="$emit('emit-close')"
+            @click="$emit('close')"
             class="js-close"
             src="../img/close-big.svg"
             alt="close"
@@ -127,5 +127,5 @@ export default {
 </script>
 
 <style lang="scss">
-@import '../scss/blocks/modal.scss';
+  @import '../scss/blocks/modal.scss';
 </style>
