@@ -14,7 +14,7 @@
         </a>
       </div>
       <Search @search="search=$event"/>
-      <User/>
+      <User :user="user"/>
     </header>
 
     <section class="section">
@@ -40,7 +40,7 @@
 <script>
 import Modal from './components/modal.vue';
 import CardItem from './components/cardItem.vue';
-import cardsMassive from './js/cardsMassive';
+// import cardsMassive from './js/cardsMassive';
 import Footer from './components/footer.vue';
 import Menu from './components/menu.vue';
 import Search from './components/search.vue';
@@ -64,15 +64,11 @@ export default {
   data() {
     return {
       isModalOpened: false,
-      cardsMassive,
+      cardsMassive: [],
       cardEl: {},
       optionsType: 0,
       search: '',
-      cardsUserUrls: [
-        '-_RLsEGjof6i/data',
-        'q3OPxRyEcPvP/data',
-        '7ZW3y5GAuIge/data',
-      ],
+      user: {},
     };
   },
   computed: {
@@ -84,10 +80,24 @@ export default {
       return this.sortArray(this.cardsMassive);
     },
   },
-  mounted() {
-    axios.get(this.cardsUserUrls[1])
+  created() {
+    axios.get('-_RLsEGjof6i/data')
       .then((res) => {
+        // this.cardsMassive.concat(res);
         console.log(res.data);
+      })
+      .catch(console.log);
+
+    axios.get('q3OPxRyEcPvP/data')
+      .then((res) => {
+        // this.cardsMassive.concat(res);
+        console.log(res.data);
+      })
+      .catch(console.log);
+
+    axios.get('7ZW3y5GAuIge/data')
+      .then((res) => {
+        this.user = res.data;
       })
       .catch(console.log);
   },

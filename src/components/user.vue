@@ -9,8 +9,8 @@
         height="44"
       />
       <div class="user__user-info">
-        <div class="user__user-name">Мортиджан</div>
-        <div class="user__user-balance">300 баллов</div>
+        <div class="user__user-name">{{user.name}}</div>
+        <div class="user__user-balance">{{user.score}} баллов</div>
       </div>
     </button>
   </div>
@@ -19,6 +19,12 @@
 <script>
 export default {
   name: 'User',
+  props: {
+    user: {
+      type: Object,
+      required: true,
+    },
+  },
 };
 </script>
 
