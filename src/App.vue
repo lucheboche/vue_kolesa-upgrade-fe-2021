@@ -47,6 +47,7 @@ import Search from './components/search.vue';
 import User from './components/user.vue';
 import Options from './components/options.vue';
 import Bonus from './components/bonus.vue';
+import axios from './js/axios';
 
 export default {
   name: 'App',
@@ -67,6 +68,11 @@ export default {
       cardEl: {},
       optionsType: 0,
       search: '',
+      cardsUserUrls: [
+        '-_RLsEGjof6i/data',
+        'q3OPxRyEcPvP/data',
+        '7ZW3y5GAuIge/data',
+      ],
     };
   },
   computed: {
@@ -77,6 +83,13 @@ export default {
       }
       return this.sortArray(this.cardsMassive);
     },
+  },
+  mounted() {
+    axios.get(this.cardsUserUrls[1])
+      .then((res) => {
+        console.log(res.data);
+      })
+      .catch(console.log);
   },
   methods: {
     modalClose() {
