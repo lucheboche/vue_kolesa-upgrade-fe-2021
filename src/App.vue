@@ -64,7 +64,8 @@ export default {
   data() {
     return {
       isModalOpened: false,
-      cardsMassive: [],
+      cardsMassiveCloth: [],
+      cardsMassiveAccessory: [],
       cardEl: {},
       optionsType: 0,
       search: '',
@@ -73,25 +74,26 @@ export default {
   },
   computed: {
     cardsMassiveComputed() {
-      if (this.optionsType > 0) {
-        const arr = this.cardsMassive.filter((card) => card.typeItem === this.optionsType);
-        return this.sortArray(arr);
+      if (this.optionsType === 1) {
+        return this.sortArray(this.cardsMassiveCloth);
       }
-      return this.sortArray(this.cardsMassive);
+      if (this.optionsType === 2) {
+        return this.sortArray(this.cardsMassiveAccessory);
+      }
+      const arr = this.cardsMassiveCloth.concat(this.cardsMassiveAccessory);
+      return this.sortArray(arr);
     },
   },
-  created() {
+  mounted() {
     axios.get('-_RLsEGjof6i/data')
       .then((res) => {
-        // this.cardsMassive.concat(res);
-        console.log(res.data);
+        this.cardsMassiveCloth = res.data;
       })
       .catch(console.log);
 
     axios.get('q3OPxRyEcPvP/data')
       .then((res) => {
-        // this.cardsMassive.concat(res);
-        console.log(res.data);
+        this.cardsMassiveAccessory = res.data;
       })
       .catch(console.log);
 
@@ -113,11 +115,11 @@ export default {
     },
     sortArray(arr) {
       arr.sort((b, a) => {
-        if (a.newItem > b.newItem) {
+        if (a.isNew > b.isNew) {
           return 1;
         }
 
-        if (a.newItem < b.newItem) {
+        if (a.isNew < b.isNew) {
           return -1;
         }
 
