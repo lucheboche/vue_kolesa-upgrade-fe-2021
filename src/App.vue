@@ -13,7 +13,7 @@
           <img src="../src/img/logo.svg" alt="logo" width="215" height="35" />
         </a>
       </div>
-      <Search/>
+      <Search @search="search=$event"/>
       <User/>
     </header>
 
@@ -66,6 +66,7 @@ export default {
       cardsMassive,
       cardEl: {},
       optionsType: 0,
+      search: '',
     };
   },
   computed: {
