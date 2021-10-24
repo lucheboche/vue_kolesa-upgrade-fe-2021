@@ -14,7 +14,10 @@
           <img src="../src/img/logo.svg" alt="logo" width="215" height="35" />
         </a>
       </div>
-      <Search @search="search=$event"/>
+      <Search
+      :searchReset="searchReset"
+      @search="search=$event"
+      />
       <User
       :userData="user"
       @userData="user=$event"
@@ -72,19 +75,26 @@ export default {
       cardEl: {},
       optionsType: 0,
       search: '',
+      searchReset: false,
       user: {},
     };
   },
   computed: {
     cardsMassiveComputed() {
+      let arr = [];
       if (this.optionsType === 1) {
-        return this.sortArray(this.cardsMassiveCloth);
+        arr = this.sortArray(this.cardsMassiveCloth);
+      } else if (this.optionsType === 2) {
+        arr = this.sortArray(this.cardsMassiveAccessory);
+      } else {
+        arr = this.sortArray(this.cardsMassiveCloth.concat(this.cardsMassiveAccessory));
       }
-      if (this.optionsType === 2) {
-        return this.sortArray(this.cardsMassiveAccessory);
+
+      if (this.search.length > 0) {
+        return arr.filter((el) => el.title.indexOf(this.search) !== -1);
       }
-      const arr = this.cardsMassiveCloth.concat(this.cardsMassiveAccessory);
-      return this.sortArray(arr);
+
+      return arr;
     },
   },
   mounted() {
@@ -128,6 +138,13 @@ export default {
         return 0;
       });
       return arr;
+    },
+  },
+  watch: {
+    optionsType() {
+      this.search = '';
+      this.searchReset = true;
+      setTimeout(() => { this.searchReset = false; }, 2);
     },
   },
 };

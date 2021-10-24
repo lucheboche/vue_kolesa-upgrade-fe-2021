@@ -1,5 +1,8 @@
 <template>
-  <div class="cards content__cards">
+  <div
+  v-if="cardsMassiveComputed.length > 0"
+  class="cards content__cards"
+  >
     <div v-for="el in cardsMassiveComputed"
       :key="el.id"
       class="card-item"
@@ -40,6 +43,13 @@
         </div>
       <button class="btn card-item__btn">Заказать</button>
     </div>
+  </div>
+
+  <div
+  v-else
+  class="cards content__cards"
+  >
+  По вашему запросу, ничего не найдено
   </div>
 </template>
 

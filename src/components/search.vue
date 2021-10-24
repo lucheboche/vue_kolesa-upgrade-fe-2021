@@ -1,6 +1,9 @@
 <template>
   <div class="search">
-    <button class="search__search-btn">
+    <button
+    @click="onEnter"
+    class="search__search-btn"
+    >
       <img src="../img/search-big.svg" alt="search" />
     </button>
     <input
@@ -16,6 +19,9 @@
 <script>
 export default {
   name: 'Search',
+  props: {
+    searchReset: Boolean,
+  },
   data() {
     return {
       search: '',
@@ -27,9 +33,14 @@ export default {
     },
   },
   watch: {
-    search() {
-      if (this.search.length > 0) {
+    search(n, o) {
+      if (Math.abs(n.length - o.length) === 1) {
         this.$emit('search', this.search);
+      }
+    },
+    searchReset() {
+      if (this.searchReset) {
+        this.search = '';
       }
     },
   },
