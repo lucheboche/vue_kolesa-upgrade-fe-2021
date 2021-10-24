@@ -7,7 +7,7 @@
     :userScore="user.score"
     @close="modalClose"
     />
-
+  <div class="main">
     <header class="header">
       <div class="header__big-logo">
         <a href="#" class="header__big-logo-link">
@@ -40,6 +40,7 @@
     </section>
 
     <Footer/>
+    </div>
   </div>
 </template>
 

@@ -3,12 +3,12 @@
 
 .user {
     padding-right: 88px;
-    justify-self: end;
+    justify-self: flex-end;
 
   &__user-btn {
     @include btn;
     
-    justify-content: end;
+    justify-content: flex-end;
     text-align: left;
   }
 

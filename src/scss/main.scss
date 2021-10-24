@@ -22,8 +22,6 @@ body {
     color: $main-color;
     width: 100vw;
     min-height: 100vh;
-    display: grid;
-    grid-template-rows: 104px 1fr auto;
     overflow-x: hidden;
 }
 
@@ -34,4 +32,10 @@ img {
 
 .input-radio {
     display: none;
+}
+
+.main {
+    display: grid;
+    grid-template-rows: 104px 1fr auto;
+    min-height: 100vh;
 }

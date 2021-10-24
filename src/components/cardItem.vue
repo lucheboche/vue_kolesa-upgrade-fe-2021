@@ -54,6 +54,8 @@
 </template>
 
 <script>
+import checkBall from '../js/checkBall';
+
 export default {
   name: 'cardItem',
   props: {
@@ -63,19 +65,7 @@ export default {
     },
   },
   methods: {
-    checkBall(el) {
-      const num = String(el).split('').reverse();
-
-      if (+num[0] > 4 || +num[0] === 0 || +num[1] === 1) {
-        return 'баллов';
-      }
-
-      if (+num[0] === 1) {
-        return 'балл';
-      }
-
-      return 'балла';
-    },
+    checkBall,
   },
 };
 </script>
