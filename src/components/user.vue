@@ -17,12 +17,34 @@
 </template>
 
 <script>
+import axios from '../js/axios';
+
 export default {
   name: 'User',
   props: {
-    user: {
+    userData: {
       type: Object,
       required: true,
+    },
+  },
+  data() {
+    return {
+      user: {},
+    };
+  },
+  mounted() {
+    axios.get('7ZW3y5GAuIge/data')
+      .then((res) => {
+        this.user = res.data;
+      })
+      .catch(console.log);
+  },
+  watch: {
+    user() {
+      this.$emit('userData', this.user);
+    },
+    userData() {
+      this.user = this.userData;
     },
   },
   methods: {

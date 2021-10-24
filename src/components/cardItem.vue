@@ -2,7 +2,7 @@
   <div class="cards content__cards">
     <div v-for="el in cardsMassiveComputed"
       :key="el.id"
-      class="card-item js-card"
+      class="card-item"
       @click="$emit('modalOpen', el)"
       >
       <div class="card-item__image">

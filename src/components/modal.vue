@@ -13,12 +13,14 @@
         </button>
 
         <div class="modal-box__foto-side modal-foto-side">
-          <img
-            :src="cardElem.mainImage"
-            :alt="cardElem.title"
-            width="330"
-            height="330"
-          />
+          <div class="modal-foto-side__image">
+            <img
+              :src="cardElem.mainImage"
+              :alt="cardElem.title"
+              width="330"
+              height="330"
+            />
+          </div>
 
           <div
           v-if="cardElem.images && cardElem.images.length > 0"
@@ -56,12 +58,14 @@
               </div>
               <button
               v-if="cardElem.price>userScore"
+              @click="$emit('close', -50)"
               class="price-box__btn price-box__btn--more-score"
               >
               Попросить 50 баллов
               </button>
               <button
               v-else
+              @click="$emit('close', cardElem.price)"
               class="price-box__btn"
               >
               Заказать

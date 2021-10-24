@@ -15,7 +15,10 @@
         </a>
       </div>
       <Search @search="search=$event"/>
-      <User :user="user"/>
+      <User
+      :userData="user"
+      @userData="user=$event"
+      />
     </header>
 
     <section class="section">
@@ -97,17 +100,16 @@ export default {
         this.cardsMassiveAccessory = res.data;
       })
       .catch(console.log);
-
-    axios.get('7ZW3y5GAuIge/data')
-      .then((res) => {
-        this.user = res.data;
-      })
-      .catch(console.log);
   },
   methods: {
-    modalClose() {
-      this.isModalOpened = false;
-      document.body.style.overflowY = 'visible';
+    modalClose(el) {
+      if (!el || el > 0) {
+        this.isModalOpened = false;
+        document.body.style.overflowY = 'visible';
+      }
+      if (el) {
+        this.user.score -= el;
+      }
     },
     modalOpen(el) {
       this.cardEl = el;
