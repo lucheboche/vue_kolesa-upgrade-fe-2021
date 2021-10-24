@@ -4,6 +4,7 @@
     <Modal
     v-if="isModalOpened"
     :cardElem="cardEl"
+    :userScore="user.score"
     @close="modalClose"
     />
 

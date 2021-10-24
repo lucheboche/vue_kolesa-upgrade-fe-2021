@@ -10,7 +10,7 @@
       />
       <div class="user__user-info">
         <div class="user__user-name">{{user.name}}</div>
-        <div class="user__user-balance">{{user.score}} баллов</div>
+        <div class="user__user-balance">{{user.score}} {{checkBall(user.score)}}</div>
       </div>
     </button>
   </div>
@@ -23,6 +23,21 @@ export default {
     user: {
       type: Object,
       required: true,
+    },
+  },
+  methods: {
+    checkBall(el) {
+      const num = String(el).split('').reverse();
+
+      if (+num[0] > 4 || +num[0] === 0 || +num[1] === 1) {
+        return 'баллов';
+      }
+
+      if (+num[0] === 1) {
+        return 'балл';
+      }
+
+      return 'балла';
     },
   },
 };

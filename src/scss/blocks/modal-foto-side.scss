@@ -20,6 +20,7 @@
         height: 50px;
         border-radius: 8px;
         cursor: pointer;
+        overflow: hidden;
     }
 
     .input-radio:checked + &__preview-image::before {

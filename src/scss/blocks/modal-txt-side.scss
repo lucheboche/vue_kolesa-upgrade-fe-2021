@@ -11,6 +11,8 @@
 
     &__title {
         @include font20;
+
+        text-transform: capitalize;
     }
 
     &__price-box {

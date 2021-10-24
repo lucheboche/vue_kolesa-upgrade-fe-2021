@@ -20,15 +20,20 @@
 
     &__btn {
         @include boxsh;
+        @include btn;
 
-        font-size: inherit;
-        line-height: inherit;
         border-radius: 8px;
         padding: 0 20px;
         min-width: 184px;
         height: 36px;
-        background: $btn-bg-color-yellow;
+        color: white;
+        background: $second-color;
         transition: 0.1s box-shadow ease-out;
+        
+        &--more-score {
+            color: $main-color;
+            background: $btn-bg-color-yellow;
+        }
     }
 
     &__btn:active {
