@@ -15,7 +15,6 @@
         </a>
       </div>
       <Search
-      :searchReset="searchReset"
       @search="search=$event"
       />
       <User
@@ -75,7 +74,6 @@ export default {
       cardEl: {},
       optionsType: 0,
       search: '',
-      searchReset: false,
       user: {},
     };
   },
@@ -143,8 +141,6 @@ export default {
   watch: {
     optionsType() {
       this.search = '';
-      this.searchReset = true;
-      setTimeout(() => { this.searchReset = false; }, 2);
     },
   },
 };

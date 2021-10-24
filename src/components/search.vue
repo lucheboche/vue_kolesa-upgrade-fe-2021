@@ -19,9 +19,6 @@
 <script>
 export default {
   name: 'Search',
-  props: {
-    searchReset: Boolean,
-  },
   data() {
     return {
       search: '',
@@ -29,19 +26,8 @@ export default {
   },
   methods: {
     onEnter() {
+      this.$emit('search', this.search);
       this.search = '';
-    },
-  },
-  watch: {
-    search(n, o) {
-      if (Math.abs(n.length - o.length) === 1) {
-        this.$emit('search', this.search);
-      }
-    },
-    searchReset() {
-      if (this.searchReset) {
-        this.search = '';
-      }
     },
   },
 };
