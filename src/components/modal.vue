@@ -1,7 +1,7 @@
 <template>
     <div class="modal">
       <div @click="$emit('close')" class="modal__tint"></div>
-      <div class="modal__box">
+      <div v-if="!congrats" class="modal__box">
         <button class="modal__close">
           <img
             @click="$emit('close')"
@@ -65,7 +65,7 @@
               </button>
               <button
               v-else
-              @click="$emit('close', cardElem.price)"
+              @click="modalClose"
               class="price-box__btn"
               >
               Заказать
@@ -166,6 +166,20 @@
           </div>
         </div>
       </div>
+      <div
+      v-else
+      class="modal__box">
+        <div class="modal__congrats">Congtats!</div>
+        <div class="price-box__balance-box">
+          <div class="price-box__tvoibalans-box">
+            <div class="price-box__balance-title">Твой баланс:</div>
+            <div class="price-box__balance">
+              {{ userScore - cardElem.price}} {{checkBall(userScore - cardElem.price)}}
+            </div>
+          </div>
+          <img src="../img/balans_icon.png" alt="Bags" />
+        </div>
+      </div>
     </div>
 </template>
 
@@ -182,6 +196,11 @@ export default {
       required: true,
     },
   },
+  data() {
+    return {
+      congrats: false,
+    };
+  },
   methods: {
     checkBall(el) {
       const num = String(el).split('').reverse();
@@ -195,6 +214,13 @@ export default {
       }
 
       return 'балла';
+    },
+    modalClose() {
+      this.congrats = true;
+      setTimeout(() => {
+        this.congrats = false;
+        this.$emit('close', this.cardElem.price);
+      }, 2000);
     },
   },
 };

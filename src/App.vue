@@ -44,7 +44,6 @@
 <script>
 import Modal from './components/modal.vue';
 import CardItem from './components/cardItem.vue';
-// import cardsMassive from './js/cardsMassive';
 import Footer from './components/footer.vue';
 import Menu from './components/menu.vue';
 import Search from './components/search.vue';
