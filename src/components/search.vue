@@ -9,6 +9,7 @@
     <input
     v-model="search"
     @keyup.enter="onEnter"
+    ref="search"
     class="search__search-input"
     type="text"
     placeholder="Поиск"
@@ -28,6 +29,7 @@ export default {
     onEnter() {
       this.$emit('search', this.search);
       this.search = '';
+      this.$refs.search.blur();
     },
   },
 };
