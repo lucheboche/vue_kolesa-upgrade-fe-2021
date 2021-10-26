@@ -1,7 +1,6 @@
 <template>
   <div
   v-if="cardsMassiveComputed.length > 0"
-  class="cards content__cards"
   >
     <div v-for="el in cardsMassiveComputed"
       :key="el.id"
@@ -47,9 +46,13 @@
 
   <div
   v-else
-  class="cards content__cards"
+  style="display: block"
   >
-  По вашему запросу, ничего не найдено
+  По вашему запросу
+  <span style="font-size: 16px; font-weight: 600;">
+    {{search ? `"${search}"` : ' '}}
+  </span>
+  ничего не найдено
   </div>
 </template>
 
@@ -61,6 +64,10 @@ export default {
   props: {
     cardsMassiveComputed: {
       type: Array,
+      required: true,
+    },
+    search: {
+      type: String,
       required: true,
     },
   },

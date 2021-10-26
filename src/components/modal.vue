@@ -1,10 +1,14 @@
 <template>
     <div class="modal">
+
       <div @click="$emit('close')" class="modal__tint"></div>
+
       <div v-if="!congrats" class="modal__box">
-        <button class="modal__close">
+        <button
+        @click="$emit('close')"
+        class="modal__close"
+        >
           <img
-            @click="$emit('close')"
             src="../img/close-big.svg"
             alt="close"
             width="32"
@@ -154,12 +158,9 @@
           </div>
 
           <div class="description">
-            <!-- <div
-            v-if="el.title"
-            class="description__title"
-            >
-            {{el.title}}
-            </div> -->
+            <div class="description__title">
+              Детали:
+            </div>
             <div class="description__txt">
               {{cardElem.description}}
             </div>
@@ -174,7 +175,7 @@
           <div class="price-box__tvoibalans-box">
             <div class="price-box__balance-title">Твой баланс:</div>
             <div class="price-box__balance">
-              {{ userScore - cardElem.price}} {{checkBall(userScore - cardElem.price)}}
+              {{userScore - cardElem.price}} {{checkBall(userScore - cardElem.price)}}
             </div>
           </div>
           <img src="../img/balans_icon.png" alt="Bags" />

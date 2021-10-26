@@ -34,7 +34,9 @@
         />
         <CardItem
         :cardsMassiveComputed="cardsMassiveComputed"
+        :search="search"
         @modalOpen="modalOpen"
+        class="content__cards"
         />
       </div>
     </section>
