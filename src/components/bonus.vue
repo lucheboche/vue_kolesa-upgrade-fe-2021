@@ -1,6 +1,6 @@
 <template>
   <div class="content__bonus bonus">
-    <button class="bonus__btn bonus__btn--green btn">
+    <button class="bonus__btn bonus__btn--green">
       <img
         class="bonus__image"
         src="../img/plus-sign.svg"
@@ -9,7 +9,7 @@
       Получить баллы
     </button>
 
-    <button class="bonus__btn bonus__btn--yellow btn">
+    <button class="bonus__btn bonus__btn--yellow">
       <img
         class="bonus__image"
         src="../img/question-sign.svg"
@@ -18,7 +18,7 @@
       Как получить баллы
     </button>
 
-    <button class="bonus__btn bonus__btn--blue btn">
+    <button class="bonus__btn bonus__btn--blue">
       <img
         class="bonus__image"
         src="../img/gift.png"

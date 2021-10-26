@@ -34,13 +34,13 @@
       >
         Размеры:
         <span style="text-transform: uppercase;">
-        {{ `${el.sizes.join('/')}` }}
+        {{ el.sizes.join('/') }}
         </span>
       </div>
       <div v-else class="card-item__sizes">
         &nbsp;
         </div>
-      <button class="btn card-item__btn">Заказать</button>
+      <button class="card-item__btn">Заказать</button>
     </div>
   </div>
 

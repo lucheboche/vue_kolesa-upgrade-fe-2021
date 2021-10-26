@@ -92,7 +92,7 @@ export default {
       }
 
       if (this.search.length > 0) {
-        return arr.filter((el) => el.title.indexOf(this.search) !== -1);
+        return arr.filter((el) => el.title.toLowerCase().indexOf(this.search.toLowerCase()) !== -1);
       }
 
       return arr;
