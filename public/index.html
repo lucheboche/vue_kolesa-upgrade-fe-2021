@@ -7,12 +7,66 @@
     <link rel="icon" href="<%= BASE_URL %>favicon.svg">
     <!-- <title><%= htmlWebpackPlugin.options.title %></title> -->
     <title></title>
+    <style>
+      .loader {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: rgba(0, 0, 0, 0.6);
+      }
+      @keyframes main {
+        0% {
+          transform:rotate(45deg)
+        }
+        50% {
+          transform:rotate(135deg)
+        }
+        100% {
+          transform:rotate(225deg)
+        }
+      }
+      @keyframes sign {
+        80% {
+          font-size: 3rem;
+          color: rgb(150, 150, 150);
+        }
+        93% {
+          font-size: 4rem;
+          color: rgb(255, 255, 255);
+          text-shadow: 0 0 50px black;
+        }
+        100% {
+          font-size: 3rem;
+          color: rgb(175, 175, 175);
+        }
+      }
+      .loader__main {
+        animation: main 1.2s infinite ease-in-out;
+      }
+      .loader__sign {
+        font-size: 3rem;
+        font-weight: bold;
+        color: rgb(175, 175, 175);
+        animation: sign .84s infinite linear;
+      }
+    </style>
   </head>
   <body>
     <noscript>
       <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
     </noscript>
     <div id="app"></div>
+
+    <div class="loader">
+      <div class="loader__main">
+        <span class="loader__sign">(&nbsp;&nbsp;)</span>
+      </div>
+    </div>
     <!-- built files will be auto injected -->
   </body>
 </html>

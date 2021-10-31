@@ -42,4 +42,17 @@ const router = new VueRouter({
   routes,
 });
 
+const loader = document.querySelector('.loader');
+
+router.beforeEach((to, fr, nx) => {
+  loader.style.display = 'flex';
+  nx();
+});
+
+router.afterEach(() => {
+  setTimeout(() => {
+    loader.style.display = 'none';
+  }, 2000);
+});
+
 export default router;
