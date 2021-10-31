@@ -1,7 +1,10 @@
 <template>
     <div class="modal">
 
-      <div @click="$emit('close')" class="modal__tint"></div>
+      <div
+      @click="$emit('close')"
+      class="modal__tint"
+      ></div>
 
       <div v-if="!congrats" class="modal__box">
         <button
@@ -62,10 +65,10 @@
               </div>
               <button
               v-if="cardElem.price>userScore"
-              @click="$emit('close', -50)"
+              @click="$emit('close')"
               class="price-box__btn price-box__btn--more-score"
               >
-              Попросить 50 баллов
+              Попросить {{cardElem.price-userScore}} {{checkBall(cardElem.price-userScore)}}
               </button>
               <button
               v-else

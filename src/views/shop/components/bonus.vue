@@ -9,7 +9,10 @@
       Получить баллы
     </button>
 
-    <button class="bonus__btn bonus__btn--yellow">
+    <button
+    @click="openHow"
+    class="bonus__btn bonus__btn--yellow"
+    >
       <img
         class="bonus__image"
         src="@/img/question-sign.svg"
@@ -32,6 +35,11 @@
 <script>
 export default {
   name: 'Bonus',
+  methods: {
+    openHow() {
+      this.$router.push('/shop/how-get-score');
+    },
+  },
 };
 </script>
 
