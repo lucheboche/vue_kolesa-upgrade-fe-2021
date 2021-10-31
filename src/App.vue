@@ -81,21 +81,21 @@ export default {
     };
   },
   computed: {
-    cardsMassiveComputed() {
-      let arr = [];
+    cardsMassiveComputedWithoutSearch() {
       if (this.optionsType === 1) {
-        arr = this.sortArray(this.cardsMassiveCloth);
-      } else if (this.optionsType === 2) {
-        arr = this.sortArray(this.cardsMassiveAccessory);
-      } else {
-        arr = this.sortArray(this.cardsMassiveCloth.concat(this.cardsMassiveAccessory));
+        return this.sortArray(this.cardsMassiveCloth);
       }
-
+      if (this.optionsType === 2) {
+        return this.sortArray(this.cardsMassiveAccessory);
+      }
+      return this.sortArray(this.cardsMassiveCloth.concat(this.cardsMassiveAccessory));
+    },
+    cardsMassiveComputed() {
       if (this.search.length > 0) {
-        return arr.filter((el) => el.title.toLowerCase().indexOf(this.search.toLowerCase()) !== -1);
+        return this.cardsMassiveComputedWithoutSearch
+          .filter((el) => el.title.toLowerCase().indexOf(this.search.toLowerCase()) !== -1);
       }
-
-      return arr;
+      return this.cardsMassiveComputedWithoutSearch;
     },
   },
   mounted() {
