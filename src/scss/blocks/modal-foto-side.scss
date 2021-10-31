@@ -6,6 +6,11 @@
 
     gap: 16px;
 
+    &__image {
+        border-radius: 8px;
+        overflow: hidden;
+    }
+
     &__preview {
         display: flex;
         justify-content: center;
@@ -20,6 +25,7 @@
         height: 50px;
         border-radius: 8px;
         cursor: pointer;
+        overflow: hidden;
     }
 
     .input-radio:checked + &__preview-image::before {

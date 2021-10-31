@@ -2,6 +2,8 @@
 @import '../mixin.scss';
 @import './modal-foto-side.scss';
 @import './modal-txt-side.scss';
+@import './options.scss';
+@import './description.scss';
 
 .modal {
     position: fixed;
@@ -44,5 +46,12 @@
         right: 24px;
         background-color: unset;
         cursor: pointer;
+    }
+
+    &__congrats {
+        position: relative;
+        font-weight: 600;
+        font-size: 24px;
+        line-height: 36px;
     }
 }

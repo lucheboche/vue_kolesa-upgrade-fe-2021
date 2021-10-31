@@ -12,7 +12,7 @@
 
         padding: 20px 0 20px 32px;
         align-self: center;
-        align-items: start;
+        align-items: flex-start;
         justify-content: space-around;
     }
 
@@ -38,7 +38,8 @@
 
     &__btn {
         @include boxsh;
-
+        @include btn;
+        
         width: 150px;
         height: 36px;
         margin: 0 40px;

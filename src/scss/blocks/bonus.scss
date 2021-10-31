@@ -11,6 +11,8 @@
     }
 
     &__btn {
+        @include btn;
+        
         width: 330px;
         height: 76px;
         border-radius: 16px;
@@ -18,7 +20,7 @@
         @include font20;
 
         font-weight: 600;
-        justify-content: start;
+        justify-content: flex-start;
         transition: 0.1s box-shadow ease-in;
 
         &:hover {

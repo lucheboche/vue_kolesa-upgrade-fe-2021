@@ -9,6 +9,8 @@
     &__image {
         height: 330px;
         position: relative;
+        border-radius: 8px;
+        overflow: hidden;
     }
 
     &__stick {
@@ -45,6 +47,7 @@
         font-weight: 600;
         font-size: 16px;
         line-height: 24px;
+        text-transform: capitalize;
     }
 
     &__sizes {
@@ -54,6 +57,8 @@
     }
 
     &__btn {
+        @include btn;
+        
         display: none;
         font-size: 16px;
         line-height: 24px;
