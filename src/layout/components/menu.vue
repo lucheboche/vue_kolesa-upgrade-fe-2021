@@ -1,0 +1,80 @@
+<template>
+  <nav class="menu section__menu">
+    <ul class="menu__link-box">
+      <li
+      v-for="(el,i) in linkArray"
+      :key="i"
+      class="menu__link-item"
+      >
+        <router-link
+        class="menu__link"
+        :to="el.link"
+        :exact="el.isExact"
+        active-class="menu__link-item--bolds"
+        >
+        {{el.name}}
+        </router-link>
+      </li>
+    </ul>
+  </nav>
+</template>
+
+<script>
+export default {
+  name: 'Menu',
+  data() {
+    return {
+      linkArray: [
+        { isExact: true, link: '/', name: 'Оргсхема' },
+        { isExact: true, link: '/about', name: 'Kolesa Team' },
+        { isExact: false, link: '/shop', name: 'Kolesa Shop' },
+        { isExact: true, link: '/somelink', name: 'Картина компании' },
+        { isExact: true, link: '/somelink', name: 'Новости' },
+        { isExact: true, link: '/somelink', name: 'Education' },
+        { isExact: true, link: '/somelink', name: 'Guidelines' },
+        { isExact: true, link: '/somelink', name: 'Библиотека' },
+        { isExact: true, link: '/somelink', name: 'FAQ' },
+      ],
+    };
+  },
+};
+</script>
+
+<style lang="scss">
+@import '@/scss/vars.scss';
+@import '@/scss/mixin.scss';
+
+.menu {
+    &__link-item {
+        position: relative;
+        list-style: none;
+        font-size: 16px;
+        padding-bottom: 24px;
+
+        &--bolds {
+            font-weight: 600;
+
+            &::before {
+                position: absolute;
+                left: -12px;
+                top: -4px;
+                content: '';
+                height: 36px;
+                width: 4px;
+                background-color: $second-color;
+                border-radius: 10px;
+            }
+        }
+    }
+
+    &__link {
+        color: $main-color;
+        text-decoration: none;
+
+        &:hover {
+            font-weight: 600;
+        }
+    }
+}
+
+</style>

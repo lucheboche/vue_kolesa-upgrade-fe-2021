@@ -3,7 +3,7 @@
     <button class="user__user-btn">
       <img
         class="user__user-image"
-        src="../img/userpic.png"
+        :src="user.avatarUrl"
         alt="userpic"
         width="44"
         height="44"
@@ -17,8 +17,8 @@
 </template>
 
 <script>
-import axios from '../js/axios';
-import checkBall from '../js/checkBall';
+import axios from '@/js/axios';
+import checkBall from '@/js/checkBall';
 
 export default {
   name: 'User',
@@ -55,5 +55,39 @@ export default {
 </script>
 
 <style lang="scss">
-  @import '../scss/blocks/user.scss';
+@import '@/scss/vars.scss';
+@import '@/scss/mixin.scss';
+
+.user {
+    padding-right: 88px;
+    justify-self: flex-end;
+
+  &__user-btn {
+    @include btn;
+
+    justify-content: flex-end;
+    text-align: left;
+  }
+
+  &__user-image {
+    border-radius: 50%;
+    margin-right: 16px;
+  }
+
+  &__user-info {
+    @include flexcol;
+
+    justify-content: space-between;
+  }
+
+  &__user-name {
+    font-weight: 600;
+    color: $second-color;
+  }
+
+  &__user-balance {
+    font-size: 13px;
+    line-height: 20px;
+  }
+}
 </style>
