@@ -32,7 +32,7 @@
         <Options
         @opt="optionsType = $event"
         />
-        <CardItem
+        <CardItems
         :cardsMassiveComputed="cardsMassiveComputed"
         :search="search"
         @modalOpen="modalOpen"
@@ -48,7 +48,7 @@
 
 <script>
 import Modal from './components/modal.vue';
-import CardItem from './components/cardItem.vue';
+import CardItems from './components/cardItems.vue';
 import Footer from './components/footer.vue';
 import Menu from './components/menu.vue';
 import Search from './components/search.vue';
@@ -61,7 +61,7 @@ export default {
   name: 'App',
   components: {
     Modal,
-    CardItem,
+    CardItems,
     Footer,
     Menu,
     Search,
