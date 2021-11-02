@@ -16,7 +16,6 @@
 
     <CardItems
     :cardsMassiveComputed="cardsMassiveComputed"
-    :search="search"
     @modalOpen="modalOpen"
     class="content__cards"
     />
@@ -44,7 +43,6 @@ export default {
       cardsMassiveCloth: [],
       cardsMassiveAccessory: [],
       optionsType: 0,
-      search: '',
     };
   },
   computed: {
@@ -58,11 +56,19 @@ export default {
       return this.sortArray(this.cardsMassiveCloth.concat(this.cardsMassiveAccessory));
     },
     cardsMassiveComputed() {
-      if (this.search.length > 0) {
+      const searchTxt = this.$store.state.search;
+      if (searchTxt.length > 0) {
         return this.cardsMassiveComputedWithoutSearch
-          .filter((el) => el.title.toLowerCase().indexOf(this.search.toLowerCase()) !== -1);
+          .filter((el) => el.title.toLowerCase().indexOf(searchTxt.toLowerCase()) !== -1);
       }
       return this.cardsMassiveComputedWithoutSearch;
+    },
+  },
+  watch: {
+    optionsType() {
+      if (this.$store.state.search.length > 0) {
+        this.$store.commit('mutSearch', '');
+      }
     },
   },
   mounted() {
@@ -100,11 +106,6 @@ export default {
         return 0;
       });
       return arr;
-    },
-  },
-  watch: {
-    optionsType() {
-      this.search = '';
     },
   },
 };

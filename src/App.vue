@@ -7,9 +7,7 @@
           <img src="@/img/logo.svg" alt="logo" width="215" height="35" />
         </a>
       </div>
-      <Search
-      @search="search=$event"
-      />
+      <Search/>
       <User/>
     </header>
 

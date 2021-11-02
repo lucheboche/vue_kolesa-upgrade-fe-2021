@@ -27,7 +27,7 @@ export default {
   },
   methods: {
     onEnter() {
-      this.$emit('search', this.search);
+      this.$store.commit('mutSearch', this.search);
       this.search = '';
       this.$refs.search.blur();
     },

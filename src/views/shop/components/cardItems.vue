@@ -50,7 +50,7 @@
   >
   По вашему запросу
   <span style="font-size: 16px; font-weight: 600;">
-    {{search ? `"${search}"` : ' '}}
+    {{this.$store.state.search ? `"${this.$store.state.search}"` : ' '}}
   </span>
   ничего не найдено
   </div>
@@ -64,10 +64,6 @@ export default {
   props: {
     cardsMassiveComputed: {
       type: Array,
-      required: true,
-    },
-    search: {
-      type: String,
       required: true,
     },
   },

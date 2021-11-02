@@ -7,6 +7,7 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   state: {
     userData: {},
+    search: '',
   },
   mutations: {
     mutUserData(state, res) {
@@ -14,6 +15,9 @@ export default new Vuex.Store({
     },
     mutUserScore(state, cardPrice) {
       state.userData.score -= cardPrice;
+    },
+    mutSearch(state, search) {
+      state.search = search;
     },
   },
   actions: {
