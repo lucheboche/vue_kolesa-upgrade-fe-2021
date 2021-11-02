@@ -2,7 +2,7 @@
   <div class="search">
     <button
     @click="onEnter"
-    class="search__search-btn"
+    class="search__btn"
     >
       <img src="@/img/search-big.svg" alt="search" />
     </button>
@@ -10,7 +10,7 @@
     v-model="search"
     @keyup.enter="onEnter"
     ref="search"
-    class="search__search-input"
+    class="search__input"
     type="text"
     placeholder="Поиск"
     />
@@ -44,7 +44,7 @@ export default {
   align-items: center;
   position: relative;
 
-  &__search-btn {
+  &__btn {
     @include btn;
 
     position: relative;
@@ -57,7 +57,7 @@ export default {
     }
   }
 
-  &__search-input {
+  &__input {
     position: absolute;
     top: 0;
     left: 0;

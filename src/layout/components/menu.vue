@@ -10,7 +10,7 @@
         class="menu__link"
         :to="el.link"
         :exact="el.isExact"
-        active-class="menu__link-item--active"
+        active-class="menu__link--active"
         >
         {{el.name}}
         </router-link>
@@ -45,36 +45,42 @@ export default {
 @import '@/scss/mixin.scss';
 
 .menu {
-    &__link-item {
-        position: relative;
-        list-style: none;
-        font-size: 16px;
-        padding-bottom: 24px;
+  &__link-box {
+    @include flexcol;
 
-        &--active {
-            font-weight: 600;
+    gap: 24px;
+    margin-bottom: 68px;
+  }
 
-            &::before {
-                position: absolute;
-                left: -12px;
-                top: -4px;
-                content: '';
-                height: 36px;
-                width: 4px;
-                background-color: $second-color;
-                border-radius: 10px;
-            }
-        }
+  &__link-item {
+      list-style: none;
     }
 
-    &__link {
-        color: $main-color;
-        text-decoration: none;
+  &__link {
+    color: $main-color;
+    text-decoration: none;
+    font-size: 16px;
 
-        &:hover {
-            font-weight: 600;
-        }
+    &--active {
+      position: relative;
+      font-weight: 600;
+
+      &::before {
+        position: absolute;
+        left: -12px;
+        top: -7px;
+        content: '';
+        height: 36px;
+        width: 4px;
+        background-color: $second-color;
+        border-radius: 10px;
+      }
     }
+
+    &:hover {
+      font-weight: 600;
+    }
+  }
 }
 
 </style>

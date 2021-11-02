@@ -47,11 +47,11 @@
 
   <div
   v-else
-  style="display: block"
+  :style="search ? {display: 'block'}:{display: 'none'}"
   >
   По вашему запросу
-  <span style="font-size: 16px; font-weight: 600;">
-    {{this.$store.state.search ? `"${this.$store.state.search}"` : ' '}}
+  <span style="font-size: 18px; font-weight: 600;">
+    {{this.search}}
   </span>
   ничего не найдено
   </div>
@@ -66,6 +66,11 @@ export default {
     cardsMassiveComputed: {
       type: Array,
       required: true,
+    },
+  },
+  computed: {
+    search() {
+      return this.$store.state.search;
     },
   },
   methods: {

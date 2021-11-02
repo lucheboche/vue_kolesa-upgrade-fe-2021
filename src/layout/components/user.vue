@@ -1,16 +1,16 @@
 <template>
   <div class="user">
-    <button class="user__user-btn">
+    <button class="user__btn">
       <img
-        class="user__user-image"
+        class="user__image"
         :src="userData.avatarUrl"
         alt="userpic"
         width="44"
         height="44"
       />
-      <div class="user__user-info">
-        <div class="user__user-name">{{userData.name}}</div>
-        <div class="user__user-balance">{{userData.score}} {{checkBall(userData.score)}}</div>
+      <div class="user__info">
+        <div class="user__name">{{userData.name}}</div>
+        <div class="user__balance">{{userData.score}} {{checkBall(userData.score)}}</div>
       </div>
     </button>
   </div>
@@ -43,30 +43,30 @@ export default {
     padding-right: 88px;
     justify-self: flex-end;
 
-  &__user-btn {
+  &__btn {
     @include btn;
 
     justify-content: flex-end;
     text-align: left;
   }
 
-  &__user-image {
+  &__image {
     border-radius: 50%;
     margin-right: 16px;
   }
 
-  &__user-info {
+  &__info {
     @include flexcol;
 
     justify-content: space-between;
   }
 
-  &__user-name {
+  &__name {
     font-weight: 600;
     color: $second-color;
   }
 
-  &__user-balance {
+  &__balance {
     font-size: 13px;
     line-height: 20px;
   }

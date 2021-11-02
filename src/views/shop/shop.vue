@@ -85,6 +85,7 @@ export default {
         this.cardsMassiveAccessory = res.data;
       })
       .catch(console.log);
+    this.$store.commit('mutSearch', '');
   },
   methods: {
     modalClose() {

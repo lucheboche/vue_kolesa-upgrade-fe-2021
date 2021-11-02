@@ -6,7 +6,12 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    userData: {},
+    userData: {
+      score: {
+        type: Number,
+        required: true,
+      },
+    },
     search: '',
   },
   mutations: {

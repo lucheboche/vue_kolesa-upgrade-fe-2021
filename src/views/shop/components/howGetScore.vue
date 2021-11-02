@@ -22,8 +22,8 @@
             height="48"
           />
           <div class="content__conf-title">{{ el.title }}</div>
-          <div class="content__conf-price">
-            {{ el.price }} {{ checkBall(el.price) }}
+          <div class="content__conf-price" :style="el.price ? {}:{background: 'unset'}">
+            {{ el.price ? `${el.price} ${checkBall(el.price)}` : `&nbsp;` }}
           </div>
           <div class="content__conf-article">
             {{ el.article }}
