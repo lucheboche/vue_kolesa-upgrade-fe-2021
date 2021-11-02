@@ -2,21 +2,22 @@
   <div
   v-if="cardsMassiveComputed.length > 0"
   >
-    <div v-for="el in cardsMassiveComputed"
-      :key="el.id"
-      class="card-item"
-      @click="$emit('modalOpen', el)"
-      >
+    <div
+    v-for="el in cardsMassiveComputed"
+    :key="el.id"
+    class="card-item"
+    @click="$emit('modalOpen', el)"
+    >
       <div class="card-item__image">
         <img
-          :src="el.mainImage"
-          :alt="el.title"
-          width="330"
-          height="330"
+        :src="el.mainImage"
+        :alt="el.title"
+        width="330"
+        height="330"
         />
         <div
-          v-if="el.isNew"
-          class="card-item__stick"
+        v-if="el.isNew"
+        class="card-item__stick"
         >
           new
         </div>

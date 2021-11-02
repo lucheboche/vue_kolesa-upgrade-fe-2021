@@ -1,5 +1,5 @@
 <template>
-  <nav class="menu section__menu">
+  <nav class="menu">
     <ul class="menu__link-box">
       <li
       v-for="(el,i) in linkArray"
@@ -10,7 +10,7 @@
         class="menu__link"
         :to="el.link"
         :exact="el.isExact"
-        active-class="menu__link-item--bolds"
+        active-class="menu__link-item--active"
         >
         {{el.name}}
         </router-link>
@@ -51,7 +51,7 @@ export default {
         font-size: 16px;
         padding-bottom: 24px;
 
-        &--bolds {
+        &--active {
             font-weight: 600;
 
             &::before {

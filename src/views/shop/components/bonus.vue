@@ -1,5 +1,5 @@
 <template>
-  <div class="content__bonus bonus">
+  <div class="bonus">
     <button class="bonus__btn bonus__btn--green">
       <img
         class="bonus__image"

@@ -1,5 +1,5 @@
 <template>
-  <div class="content__options options">
+  <div class="options">
     <label
     v-for="(opt,i) in optArr"
     :key="i"

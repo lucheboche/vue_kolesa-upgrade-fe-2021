@@ -1,5 +1,5 @@
 <template>
-  <div class="section__content content">
+  <div class="content">
     <Modal
     v-if="isModalOpened"
     :cardElem="cardElem"
@@ -8,10 +8,13 @@
 
     <div class="content__banner"></div>
 
-    <Bonus/>
+    <Bonus
+    class="content__bonus"
+    />
 
     <Options
     @opt="optionsType = $event"
+    class="content__options"
     />
 
     <CardItems

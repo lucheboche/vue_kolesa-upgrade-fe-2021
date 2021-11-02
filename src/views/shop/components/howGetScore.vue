@@ -1,5 +1,5 @@
 <template>
-  <div class="section__content content">
+  <div class="content">
     <div class="content__path">
       <router-link to="/shop" class="content__path-link">
         Kolesa Shop</router-link
@@ -9,7 +9,7 @@
       >
     </div>
     <div class="content__page-title">Как получить баллы</div>
-    <div class="content__cards">
+    <div class="content__conf-cards">
       <div
       v-for="(el,i) in cardsInfo"
       :key="i"
@@ -129,7 +129,7 @@ export default {
     margin-bottom: 16px;
   }
 
-  &__cards {
+  &__conf-cards {
     width: 100%;
     display: grid;
     grid-template-columns: repeat(3, 330px);

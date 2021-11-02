@@ -12,8 +12,8 @@
     </header>
 
     <section class="section">
-      <Menu/>
-      <router-view></router-view>
+      <Menu class="section__menu"/>
+      <router-view class="section__content"></router-view>
     </section>
 
     <Footer/>
