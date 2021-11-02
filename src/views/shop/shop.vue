@@ -29,7 +29,6 @@ import Modal from './components/modal.vue';
 import CardItems from './components/cardItems.vue';
 import Options from './components/options.vue';
 import Bonus from './components/bonus.vue';
-import axios from '@/js/axios';
 
 export default {
   name: 'App',
@@ -42,15 +41,18 @@ export default {
   data() {
     return {
       isModalOpened: false,
-      cardsMassiveCloth: [],
-      cardsMassiveAccessory: [],
       cardEl: {},
       optionsType: 0,
       search: '',
-      user: {},
     };
   },
   computed: {
+    cardsMassiveCloth() {
+      return this.$store.state.cardsMassiveCloth;
+    },
+    cardsMassiveAccessory() {
+      return this.$store.state.cardsMassiveAccessory;
+    },
     cardsMassiveComputedWithoutSearch() {
       if (this.optionsType === 1) {
         return this.sortArray(this.cardsMassiveCloth);
@@ -69,17 +71,7 @@ export default {
     },
   },
   mounted() {
-    axios.get('-_RLsEGjof6i/data')
-      .then((res) => {
-        this.cardsMassiveCloth = res.data;
-      })
-      .catch(console.log);
-
-    axios.get('q3OPxRyEcPvP/data')
-      .then((res) => {
-        this.cardsMassiveAccessory = res.data;
-      })
-      .catch(console.log);
+    this.$store.dispatch('fetchCardsData');
   },
   methods: {
     modalClose(el) {
