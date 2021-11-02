@@ -178,7 +178,7 @@
           <div class="price-box__tvoibalans-box">
             <div class="price-box__balance-title">Твой баланс:</div>
             <div class="price-box__balance">
-              {{userScore - cardElem.price}} {{checkBall(userScore - cardElem.price)}}
+              {{userScore}} {{checkBall(userScore)}}
             </div>
           </div>
           <img src="@/img/balans_icon.png" alt="Bags" />
@@ -197,23 +197,25 @@ export default {
       type: Object,
       required: true,
     },
-    userScore: {
-      type: Number,
-      required: true,
-    },
   },
   data() {
     return {
       congrats: false,
     };
   },
+  computed: {
+    userScore() {
+      return this.$store.state.userData.score;
+    },
+  },
   methods: {
     checkBall,
     modalClose() {
+      this.$store.commit('mutUserScore', this.cardElem.price);
       this.congrats = true;
       setTimeout(() => {
         this.congrats = false;
-        this.$emit('close', this.cardElem.price);
+        this.$emit('close');
       }, 2000);
     },
   },

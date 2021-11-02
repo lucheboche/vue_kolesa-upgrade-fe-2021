@@ -2,8 +2,7 @@
   <div class="section__content content">
     <Modal
     v-if="isModalOpened"
-    :cardElem="cardEl"
-    :userScore="user.score"
+    :cardElem="cardElem"
     @close="modalClose"
     />
 
@@ -31,7 +30,7 @@ import Options from './components/options.vue';
 import Bonus from './components/bonus.vue';
 
 export default {
-  name: 'App',
+  name: 'Shop',
   components: {
     Modal,
     CardItems,
@@ -41,18 +40,14 @@ export default {
   data() {
     return {
       isModalOpened: false,
-      cardEl: {},
+      cardElem: {},
+      cardsMassiveCloth: [],
+      cardsMassiveAccessory: [],
       optionsType: 0,
       search: '',
     };
   },
   computed: {
-    cardsMassiveCloth() {
-      return this.$store.state.cardsMassiveCloth;
-    },
-    cardsMassiveAccessory() {
-      return this.$store.state.cardsMassiveAccessory;
-    },
     cardsMassiveComputedWithoutSearch() {
       if (this.optionsType === 1) {
         return this.sortArray(this.cardsMassiveCloth);
@@ -71,20 +66,24 @@ export default {
     },
   },
   mounted() {
-    this.$store.dispatch('fetchCardsData');
+    this.$store.dispatch('fetchCardsMassiveCloth')
+      .then((res) => {
+        this.cardsMassiveCloth = res.data;
+      })
+      .catch(console.log);
+    this.$store.dispatch('fetchCardsMassiveAccessory')
+      .then((res) => {
+        this.cardsMassiveAccessory = res.data;
+      })
+      .catch(console.log);
   },
   methods: {
-    modalClose(el) {
-      if (!el || el > 0) {
-        this.isModalOpened = false;
-        document.body.style.overflowY = 'visible';
-      }
-      if (el) {
-        this.user.score -= el;
-      }
+    modalClose() {
+      this.isModalOpened = false;
+      document.body.style.overflowY = 'visible';
     },
     modalOpen(el) {
-      this.cardEl = el;
+      this.cardElem = el;
       this.isModalOpened = true;
       document.body.style.overflow = 'hidden';
     },

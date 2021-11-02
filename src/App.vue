@@ -10,10 +10,7 @@
       <Search
       @search="search=$event"
       />
-      <User
-      :userData="user"
-      @userData="user=$event"
-      />
+      <User/>
     </header>
 
     <section class="section">
