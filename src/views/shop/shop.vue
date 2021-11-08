@@ -70,7 +70,7 @@ export default {
   watch: {
     optionsType() {
       if (this.$store.state.search.length > 0) {
-        this.$store.commit('mutSearch', '');
+        this.$store.commit('Search', '');
       }
     },
   },
@@ -85,7 +85,7 @@ export default {
         this.cardsMassiveAccessory = res.data;
       })
       .catch(console.log);
-    this.$store.commit('mutSearch', '');
+    this.$store.commit('Search', '');
   },
   methods: {
     modalClose() {

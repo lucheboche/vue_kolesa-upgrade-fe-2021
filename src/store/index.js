@@ -15,13 +15,13 @@ export default new Vuex.Store({
     search: '',
   },
   mutations: {
-    mutUserData(state, res) {
+    UserData(state, res) {
       state.userData = res;
     },
-    mutUserScore(state, cardPrice) {
+    UserScore(state, cardPrice) {
       state.userData.score -= cardPrice;
     },
-    mutSearch(state, search) {
+    Search(state, search) {
       state.search = search;
     },
   },
@@ -29,7 +29,7 @@ export default new Vuex.Store({
     fetchUserData({ commit }) {
       axios.get('7ZW3y5GAuIge/data')
         .then((res) => {
-          commit('mutUserData', res.data);
+          commit('UserData', res.data);
         })
         .catch(console.log);
     },

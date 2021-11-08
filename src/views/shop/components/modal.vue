@@ -211,7 +211,7 @@ export default {
   methods: {
     checkBall,
     modalClose() {
-      this.$store.commit('mutUserScore', this.cardElem.price);
+      this.$store.commit('UserScore', this.cardElem.price);
       this.congrats = true;
       setTimeout(() => {
         this.congrats = false;
