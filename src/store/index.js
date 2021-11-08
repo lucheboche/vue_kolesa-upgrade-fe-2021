@@ -32,7 +32,7 @@ export default new Vuex.Store({
         .then((res) => {
           commit('UserData', res.data);
         })
-        .catch(console.log);
+        .catch(console.error);
     },
     fetchCardsMassiveCloth() {
       return axios.get(endpoints.cardsMassiveCloth);

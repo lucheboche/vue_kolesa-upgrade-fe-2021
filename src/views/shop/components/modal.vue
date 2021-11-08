@@ -56,7 +56,7 @@
 
         <div class="modal-txt-side">
           <div class="modal-txt-side__title">
-            Футболка {{cardElem.title}}
+            {{cardElem.title}}
           </div>
           <div class="modal-txt-side__price-box price-box">
             <div class="price-box__pricebtn">

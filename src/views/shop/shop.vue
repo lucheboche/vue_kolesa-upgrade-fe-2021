@@ -79,12 +79,12 @@ export default {
       .then((res) => {
         this.cardsMassiveCloth = res.data;
       })
-      .catch(console.log);
+      .catch(console.error);
     this.$store.dispatch('fetchCardsMassiveAccessory')
       .then((res) => {
         this.cardsMassiveAccessory = res.data;
       })
-      .catch(console.log);
+      .catch(console.error);
     this.$store.commit('Search', '');
   },
   methods: {
