@@ -1,6 +1,7 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
 import axios from '@/js/axios';
+import endpoints from './endpoints';
 
 Vue.use(Vuex);
 
@@ -27,17 +28,17 @@ export default new Vuex.Store({
   },
   actions: {
     fetchUserData({ commit }) {
-      axios.get('7ZW3y5GAuIge/data')
+      axios.get(endpoints.userData)
         .then((res) => {
           commit('UserData', res.data);
         })
         .catch(console.log);
     },
     fetchCardsMassiveCloth() {
-      return axios.get('-_RLsEGjof6i/data');
+      return axios.get(endpoints.cardsMassiveCloth);
     },
     fetchCardsMassiveAccessory() {
-      return axios.get('q3OPxRyEcPvP/data');
+      return axios.get(endpoints.cardsMassiveAccessory);
     },
   },
 });
