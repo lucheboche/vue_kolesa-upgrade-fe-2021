@@ -1,44 +1,19 @@
 <template>
   <div id="app">
-
-    <Modal
-    v-if="isModalOpened"
-    :cardElem="cardEl"
-    :userScore="user.score"
-    @close="modalClose"
-    />
   <div class="main">
     <header class="header">
       <div class="header__big-logo">
         <a href="#" class="header__big-logo-link">
-          <img src="../src/img/logo.svg" alt="logo" width="215" height="35" />
+          <img src="@/img/logo.svg" alt="logo" width="215" height="35" />
         </a>
       </div>
-      <Search
-      @search="search=$event"
-      />
-      <User
-      :userData="user"
-      @userData="user=$event"
-      />
+      <Search/>
+      <User/>
     </header>
 
     <section class="section">
-      <Menu/>
-      <div class="section__content content">
-        <div class="content__banner"></div>
-
-        <Bonus/>
-        <Options
-        @opt="optionsType = $event"
-        />
-        <CardItems
-        :cardsMassiveComputed="cardsMassiveComputed"
-        :search="search"
-        @modalOpen="modalOpen"
-        class="content__cards"
-        />
-      </div>
+      <Menu class="section__menu"/>
+      <router-view class="section__content"></router-view>
     </section>
 
     <Footer/>
@@ -47,108 +22,92 @@
 </template>
 
 <script>
-import Modal from './components/modal.vue';
-import CardItems from './components/cardItems.vue';
-import Footer from './components/footer.vue';
-import Menu from './components/menu.vue';
-import Search from './components/search.vue';
-import User from './components/user.vue';
-import Options from './components/options.vue';
-import Bonus from './components/bonus.vue';
-import axios from './js/axios';
+import Footer from './layout/components/footer.vue';
+import Menu from './layout/components/menu.vue';
+import Search from './layout/components/search.vue';
+import User from './layout/components/user.vue';
 
 export default {
   name: 'App',
   components: {
-    Modal,
-    CardItems,
     Footer,
     Menu,
     Search,
     User,
-    Options,
-    Bonus,
-  },
-  data() {
-    return {
-      isModalOpened: false,
-      cardsMassiveCloth: [],
-      cardsMassiveAccessory: [],
-      cardEl: {},
-      optionsType: 0,
-      search: '',
-      user: {},
-    };
-  },
-  computed: {
-    cardsMassiveComputedWithoutSearch() {
-      if (this.optionsType === 1) {
-        return this.sortArray(this.cardsMassiveCloth);
-      }
-      if (this.optionsType === 2) {
-        return this.sortArray(this.cardsMassiveAccessory);
-      }
-      return this.sortArray(this.cardsMassiveCloth.concat(this.cardsMassiveAccessory));
-    },
-    cardsMassiveComputed() {
-      if (this.search.length > 0) {
-        return this.cardsMassiveComputedWithoutSearch
-          .filter((el) => el.title.toLowerCase().indexOf(this.search.toLowerCase()) !== -1);
-      }
-      return this.cardsMassiveComputedWithoutSearch;
-    },
-  },
-  mounted() {
-    axios.get('-_RLsEGjof6i/data')
-      .then((res) => {
-        this.cardsMassiveCloth = res.data;
-      })
-      .catch(console.log);
-
-    axios.get('q3OPxRyEcPvP/data')
-      .then((res) => {
-        this.cardsMassiveAccessory = res.data;
-      })
-      .catch(console.log);
-  },
-  methods: {
-    modalClose(el) {
-      if (!el || el > 0) {
-        this.isModalOpened = false;
-        document.body.style.overflowY = 'visible';
-      }
-      if (el) {
-        this.user.score -= el;
-      }
-    },
-    modalOpen(el) {
-      this.cardEl = el;
-      this.isModalOpened = true;
-      document.body.style.overflow = 'hidden';
-    },
-    sortArray(arr) {
-      arr.sort((b, a) => {
-        if (a.isNew > b.isNew) {
-          return 1;
-        }
-
-        if (a.isNew < b.isNew) {
-          return -1;
-        }
-
-        return 0;
-      });
-      return arr;
-    },
-  },
-  watch: {
-    optionsType() {
-      this.search = '';
-    },
   },
 };
 </script>
 
 <style lang="scss">
-@import "./src/scss/main.scss";
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap');
+@import '@/scss/vars.scss';
+@import '@/scss/mixin.scss';
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    border: 0;
+    outline: 0;
+    box-sizing: border-box;
+    padding: 0;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
+    line-height: 24px;
+    font-weight: 400;
+    color: $main-color;
+    width: 100vw;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+img {
+    background-color: unset;
+    display: block;
+}
+
+.input-radio {
+    display: none;
+}
+
+.main {
+    display: grid;
+    grid-template-rows: 104px 1fr auto;
+    min-height: 100vh;
+}
+
+.header {
+    width: 100%;
+    height: 100%;
+    padding: 36px $calc-width 24px $calc-width;
+    display: grid;
+    grid-template-columns: 312px 308px auto;
+
+    &__big-logo {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        padding-left: 32px;
+    }
+}
+
+.section {
+    padding: 0 $calc-width 0 $calc-width;
+    display: grid;
+    grid-template-columns: 312px auto;
+
+    &__menu {
+        margin-left: 32px;
+    }
+
+    &__content {
+        @include flexcol;
+
+        margin-right: 88px;
+    }
+}
+
 </style>
